@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_edit_params"
+        android:title="Edit parameters" />
+    <item
+        android:id="@+id/action_edit_data"
+        android:title="Edit data (of params)" />
+    <item
+        android:id="@+id/action_length"
+        android:title="Length of data in stats" />
+</menu>

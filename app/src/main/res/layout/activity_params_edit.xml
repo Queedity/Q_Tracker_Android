@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/edit_new_param"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="New parameter name" />
+    <Button
+        android:id="@+id/btn_add_param"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add parameter" />
+    <TextView android:text="Long press a parameter to delete" android:layout_marginTop="8dp" />
+    <ListView
+        android:id="@+id/list_params"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
