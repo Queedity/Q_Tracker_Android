@@ -34,12 +34,12 @@ jobs:
         if [ -f ./gradlew ]; then
           chmod +x ./gradlew
           echo "Using project Gradle wrapper"
-          ./gradlew assembleRelease --no-daemon
+          ./gradlew :app:assembleRelease --no-daemon
         else
           echo "Gradle wrapper not found. Installing Gradle from apt (may be older)."
           sudo apt-get update
           sudo apt-get install -y gradle
-          gradle assembleRelease --no-daemon
+          gradle :app:assembleRelease --no-daemon
         fi
       env:
         JAVA_TOOL_OPTIONS: -Xmx1536m
