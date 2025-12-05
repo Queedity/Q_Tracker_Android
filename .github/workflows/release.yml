@@ -28,11 +28,19 @@ jobs:
           ~/.gradle/wrapper
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
 
-    - name: Ensure gradlew is executable
-      run: if [ -f ./gradlew ]; then chmod +x ./gradlew; fi
-
-    - name: Build release APK
-      run: ./gradlew assembleRelease --no-daemon
+    - name: Build release APK (uses wrapper if present, falls back to distro gradle)
+      run: |
+        set -e
+        if [ -f ./gradlew ]; then
+          chmod +x ./gradlew
+          echo "Using project Gradle wrapper"
+          ./gradlew assembleRelease --no-daemon
+        else
+          echo "Gradle wrapper not found. Installing Gradle from apt (may be older)."
+          sudo apt-get update
+          sudo apt-get install -y gradle
+          gradle assembleRelease --no-daemon
+        fi
       env:
         JAVA_TOOL_OPTIONS: -Xmx1536m
 
